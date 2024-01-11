@@ -52,7 +52,7 @@ def verificar_usuario(correo, contraseña):
 # Interacción con el usuario
 def iniciar_sesion_o_registrar():
     print("Bienvenido a la pizzería")
-    opcion = input("¿Estás registrado? (sí/no): ")
+    opcion = input("¿Estás registrado? (si/no): ")
 
     if opcion.lower() == 'no':
         registrar_usuario()
