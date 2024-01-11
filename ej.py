@@ -1,7 +1,6 @@
-import csv
 import os.path
 from typing import Dict
-
+import csv
 # Función para verificar si un usuario ya está registrado
 def usuario_existente(correo):
     file_path = 'usuarios.csv'
