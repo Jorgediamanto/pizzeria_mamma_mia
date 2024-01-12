@@ -1,8 +1,13 @@
 
 from PizzaBuilder import *
-class Pizza(PizzaBuilder):
+from pizzaobserver import Observer
+
+class Pizza(PizzaBuilder,Observer):
     def __init__(self):
         self.reset()
+
+    def update(self, message):
+        print(f"¡Nueva notificación para pizza!: {message}")
         
     def reset(self):    
         self.tamano = ""

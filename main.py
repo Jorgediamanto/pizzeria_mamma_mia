@@ -11,8 +11,10 @@ def main():
     iniciar_sesion_o_registrar() 
     
     director = PizzaDirector(Pizza())
+    director.add_observer(Pizza())
     builder = director.builder
     pedido_builder = PedidoPizzaCSVBuilder()
+
     director.crear_pizza()
     pizza = builder.pizza
     print("¡Tu pizza está lista!")
