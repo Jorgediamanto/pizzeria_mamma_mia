@@ -20,23 +20,23 @@ def usuario_existente(correo):
 # Función para registrar un nuevo usuario si no existe previamente
 def registrar_usuario():
     while True:
-        print("¡Vamos a crear una cuenta!")
-        nombre = input("Ingresa tu nombre: ")
-        correo = input("Ingresa tu correo electrónico: ")
-        contraseña = input("Ingresa una contraseña: ")
+        print("Creemos una cuenta para ti")
+        nombre = input("Introduce tu nombre: ")
+        correo = input("Introduce tu nombre de usuario: ")
+        contraseña = input("Introduce una contraseña: ")
 
         if nombre.strip() != "" and correo.strip() != "" and contraseña.strip() != "":
             if not usuario_existente(correo):
                 with open('usuarios.csv', mode='a', newline='') as file:
                     writer = csv.writer(file)
                     writer.writerow([nombre, correo, contraseña])
-                    print("Usuario registrado exitosamente. Ahora inicia sesión.")
+                    print("Usuario registrado. Inicia sesión.")
                     break
             else:
-                print("Ya existe un usuario con este correo. Por favor, inicia sesión.")
+                print("Ya existe un usuario con este correo. intentalo de nuevo.")
                 break
         else:
-            print("Debes completar todos los campos.")
+            print("Falta información.")
 
 # Función para verificar si el usuario existe en el archivo CSV
 def verificar_usuario(correo, contraseña):
@@ -49,23 +49,23 @@ def verificar_usuario(correo, contraseña):
 
 # Interacción con el usuario
 def iniciar_sesion_o_registrar():
-    print("Bienvenido a la pizzería")
-    opcion = input("¿Estás registrado? (si/no): ")
+    print("Pizzeria DELIZIOSO, que desea?")
+    opcion = input("Esta registrado? (sí/no): ")
 
     if opcion.lower() == 'no':
         registrar_usuario()
         iniciar_sesion_o_registrar()
     elif opcion.lower() == 'sí':
-        correo = input("Ingresa tu correo electrónico: ")
+        correo = input("Ingresar tu nombre de usuario: ")
         contraseña = input("Ingresa tu contraseña: ")
         if verificar_usuario(correo, contraseña):
-            print("Inicio de sesión exitoso. ¡Disfruta tu estadía!")
+            print("El incio de sesiónha sido todo un exito.")
             # Aquí podrías redirigir al usuario a la página principal de la pizzería
         else:
-            print("Credenciales incorrectas. Inténtalo de nuevo.")
+            print("Campos incorrectos. Inténtalo de nuevo.")
             iniciar_sesion_o_registrar()
     else:
-        print("Opción no válida. Por favor, responde 'sí' o 'no'.")
+        print("Respuestas válidas: 'sí' o 'no'.")
         iniciar_sesion_o_registrar()
 
 
